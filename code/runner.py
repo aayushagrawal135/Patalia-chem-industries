@@ -7,7 +7,7 @@ from db_declarative import Client, Product, Invoice, Base
 from functions import *
 
 def main():
-    engine = create_engine('sqlite:///reminderSystem.db')
+    engine = create_engine('sqlite:///pci.db')
     Base.metadata.bind = engine
 
     DBSession = sessionmaker(bind=engine)
@@ -20,7 +20,7 @@ def main():
     newClient['address'] = 'abc, xyz, near lmnop'
     newClient['phoneNumber'] = '+91312312234523'
 
-    insertClient(session, newClient)
+    # insertClient(session, newClient)
 
     newClient2 = {}
     newClient2['GST_no'] = 'ASdas1234'
@@ -29,7 +29,11 @@ def main():
     newClient2['address'] = 'abc, xyz, near lmnop'
     newClient2['phoneNumber'] = '+91312312234523'
 
-    insertClient(session, newClient2)
+    # insertClient(session, newClient2)
+
+    listAllClients(session)
+
+    deleteClient(session, newClient)
 
     listAllClients(session)
 
