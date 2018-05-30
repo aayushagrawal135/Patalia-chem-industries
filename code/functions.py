@@ -5,10 +5,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from db_declarative import Client, Product, Invoice
 
-def insert(session):
+def insert(session, entries):
     fields = ['GST_no','authority_designation','name','address','HSN_code','product_name','PO_no','freight','no_of_packages','order_description','quantity','quantity_unit','rate','tax','delivery_address','packing_charges','invoice_no','invoice_date','LR_no','LR_date']
 
-
+    for key in entries.keys():
+        print(entries[key])
     return
 
 def insertClient(session, data):
